@@ -1,0 +1,37 @@
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    var dns = "Public DNS Name: ";
+    jQuery( document ).ready(function( $ ){
+        jQuery( document ).on('submit_success', function(event, response){
+            document.getElementById("public_dns_name").innerHTML = dns.concat(response.data['1'].public_dns_name);
+        });
+    });
+    // $( document ).ready(function() {
+    //     $("#form-field-a").attr("placeholder", "0").val("").focus().blur();
+    //     $("#form-field-b").attr("placeholder", "0").val("").focus().blur();
+    // });
+    
+    document.querySelector("#remote-desktop-btn").addEventListener("click", function(){
+    document.getElementById("remote-desktop-btn").innerHTML = "Downloaded";
+    document.querySelector("#password").style.display = "block";
+    });
+    document.querySelector("#password").style.display = "none";  
+    
+    
+</script>
+<p style="font-size:1em" id='public_dns_name'></p>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    jQuery( document ).ready(function( $ ){
+        jQuery( document ).on('submit_success', function(event, response){
+            document.getElementById("instance_stop").innerHTML = "Instance ".concat(response.data['1'].instance_stop).concat(" terminated.");
+        });
+    });
+</script>
+<p style="font-size:1em" id='instance_stop'></p>
